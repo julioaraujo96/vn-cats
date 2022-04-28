@@ -1,11 +1,10 @@
-<header>
-    <p>VNCats - The Cat Encyclopedia</p>
-</header>
-
+<app-header></app-header>
 <div class="container">
     <app-breed *ngFor="let breed of breeds"
     [breed]=breed
-    class="card">
+    class="card"
+    (click)="showDetailPage()"
+    >
     </app-breed>
 </div>
 
