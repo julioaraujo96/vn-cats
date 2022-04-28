@@ -1,10 +1,16 @@
 header 
 {
-  position: fixed;
-  top: 0;
   width: 100%;
   background: var(--vn-green);
   text-align: center;
   padding:1em;
   color: white;
+}
+
+.container
+{
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin: 3em auto;
 }

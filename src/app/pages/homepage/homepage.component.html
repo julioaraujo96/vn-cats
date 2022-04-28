@@ -2,4 +2,10 @@
     <p>VNCats - The Cat Encyclopedia</p>
 </header>
 
+<div class="container">
+    <app-breed *ngFor="let breed of breeds"
+    [breed]=breed
+    class="card">
+    </app-breed>
+</div>
 
