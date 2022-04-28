@@ -5,3 +5,7 @@ export interface Breed {
     coat: string;
     pattern: string;
   }
+
+  export interface CatfactBreedResponse {
+    data: Breed[];
+  }

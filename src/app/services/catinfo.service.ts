@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Breed } from '../models/breeds';
+import { Breed,CatfactBreedResponse } from '../models/breeds';
 import { Fact } from '../models/fact';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, map, tap, throwError } from 'rxjs';
 
 const API_URL = 'https://catfact.ninja' as const;
-interface CatfactBreedResponse {
-  data: Breed[];
-}
 
 @Injectable({
   providedIn: 'root'
