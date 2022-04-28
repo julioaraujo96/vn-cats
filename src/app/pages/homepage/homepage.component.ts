@@ -7,7 +7,7 @@ import { CatinfoService } from 'src/app/services/catinfo.service';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss']
+  styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
 
@@ -18,7 +18,6 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.catInfoService.allCatBreeds$.subscribe((data: Breed[]) => {
-      console.log(data);
       this.breeds = data;
     });
   }

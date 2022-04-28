@@ -1,6 +1,6 @@
 .breed-card
 {
-    background: var(--vn-green);
+    background: #394255;
     color: white;
     border-radius: 5px;
     padding: 1em;
@@ -8,6 +8,6 @@
     text-align: center;
     cursor: pointer;
     &:hover{
-        background: #21886b;
+        background: var(--vn-green);
     }
 }

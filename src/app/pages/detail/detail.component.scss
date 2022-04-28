@@ -1,0 +1,33 @@
+.container 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+  color:white;
+}
+
+.fact-box
+{
+    border: 1px solid var(--vn-green);
+    padding: 1em;
+    width: 80%;
+    font-size:clamp(.5rem, 5vw, 2rem);
+    text-align: justify;
+}
+.btn-back
+{
+  padding: 1em;
+  background: var(--vn-green);
+  color: white;
+  border: none;
+  border-radius: 0.5px;
+  cursor: pointer;
+}
+
+footer
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
