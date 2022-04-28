@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Breeds } from '../models/breeds';
+import { Breed } from '../models/breeds';
 import { Fact } from '../models/fact';
 import { Observable } from 'rxjs/internal/Observable';
-import { catchError, tap, throwError } from 'rxjs';
+import { catchError, map, tap, throwError } from 'rxjs';
 
-const API_URL = 'https://catfact.ninja/';
+const API_URL = 'https://catfact.ninja' as const;
+interface CatfactBreedResponse {
+  data: Breed[];
+}
 
 @Injectable({
   providedIn: 'root'
@@ -14,30 +17,28 @@ const API_URL = 'https://catfact.ninja/';
 
 export class CatinfoService {
 
+  public readonly allCatBreeds$: Observable<Breed[]>;
+  public readonly randomFact$: Observable<Fact>;
+
   //https://catfact.ninja/breeds
-  constructor( private http: HttpClient, private route: Router,) { }
+  constructor( private http: HttpClient, private route: Router,) 
+   {
 
-  private handleError(err: HttpErrorResponse) {
-
-    let errorMessage = '';
-    if (err.error instanceof ErrorEvent) {
-
-        errorMessage = `An error occurred: ${err.error.message}`;
-    } else {
-
-        errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
-    }
-    console.error(errorMessage);
-    return throwError(errorMessage);
-}
+    this.allCatBreeds$ = this.http.get<CatfactBreedResponse>(`${API_URL}/breeds`).pipe(
+      map((response: CatfactBreedResponse): Breed[] => response.data),
+    );
+    
+    this.randomFact$ = this.http.get<Fact>(`${API_URL}/fact`);
+   }
 
 
-  getAllCatBreeds() : Observable<Breeds[]> {
-      return this.http.get<Breeds[]>(API_URL + 'breeds');
-  }
 
-  getRandomFact() : Observable<Fact[]>{
-    return this.http.get<Fact[]>(API_URL + 'fact');
-  }
+  // getAllCatBreeds() : Observable<Breed[]> {
+  //     return this.http.get<Breed[]>(API_URL + 'breeds');
+  // }
+
+  // getRandomFact() : Observable<Fact[]>{
+  //   return this.http.get<Fact[]>(API_URL + 'fact');
+  // }
   
 }
