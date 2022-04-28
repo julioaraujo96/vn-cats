@@ -31,8 +31,6 @@ export class CatinfoService {
     this.randomFact$ = this.http.get<Fact>(`${API_URL}/fact`);
    }
 
-
-
   // getAllCatBreeds() : Observable<Breed[]> {
   //     return this.http.get<Breed[]>(API_URL + 'breeds');
   // }
