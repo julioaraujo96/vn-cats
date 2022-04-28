@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+:root 
+{
+    --vn-green: #32B08D; 
+    --vn-secondary: #222732; 
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html
+{
+    background-color: var(--vn-secondary);
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
