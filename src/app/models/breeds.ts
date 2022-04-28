@@ -1,4 +1,4 @@
-export interface Breeds {
+export interface Breed {
     breed: string;
     country: string;
     origin: string;
